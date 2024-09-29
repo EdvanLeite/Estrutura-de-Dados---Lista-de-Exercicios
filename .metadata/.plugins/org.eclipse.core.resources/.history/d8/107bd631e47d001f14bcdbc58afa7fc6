@@ -1,0 +1,36 @@
+package Application;
+
+import java.util.Scanner;
+
+import Entities.Fila;
+
+public class Program {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+
+		Fila fila = new Fila();
+		
+		
+		int op = 0;
+		
+		while(op != 1) {
+			
+			System.out.println("Enter(0) or leave(1)");
+			op = sc.nextInt();
+			
+			System.out.println("Number to add:");
+			int num = sc.nextInt();
+			fila.push(num);
+		}
+		
+		fila.exibir();
+		
+		
+		
+		
+		
+	}
+
+}

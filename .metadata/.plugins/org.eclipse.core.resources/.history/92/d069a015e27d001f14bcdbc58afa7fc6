@@ -1,0 +1,29 @@
+
+public class Fila {
+	
+	public Bloco inicio;
+	
+	public void push (Bloco novo) {
+		Bloco aux = this.localizar();
+		aux.prox = novo;
+		
+	}
+	
+	
+	public void pop() {
+		inicio = inicio.prox;
+	}
+	
+	
+	public Bloco localizar() {
+		Bloco aux = inicio;
+		 while(aux.prox != null) {
+			 aux = aux.prox;
+		 }
+		return aux;
+		
+	}
+	
+	
+
+}

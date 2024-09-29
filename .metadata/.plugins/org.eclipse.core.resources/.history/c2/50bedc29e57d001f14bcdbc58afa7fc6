@@ -1,0 +1,84 @@
+package Entities;
+
+public class Fila {
+	
+	public Bloco inicio;
+	
+	
+
+	public void push (int valor) {
+		
+		Bloco novo = new Bloco(valor);
+		
+		if(this.tamanhoFila() == 0) {
+			
+			this.inicio = novo;
+			
+		}else {
+			
+			Bloco aux  = this.localizar();
+			aux.prox = novo;
+		}
+	}
+	
+	
+	
+	public void pop() {
+		inicio = inicio.prox;
+	}
+	
+	
+	
+	private Bloco localizar() {
+		
+		Bloco aux = inicio;
+		
+		 while(aux.prox != null) {
+			 
+			 aux = aux.prox;
+		 }
+		 
+		return aux;
+		
+	}
+	
+	
+	
+	
+	public int tamanhoFila() {
+		
+		Bloco aux = inicio;
+		int tam = 0;
+		
+		 while(aux != null) {
+			 
+			 tam++;
+			 aux = aux.prox;
+			 
+		 }
+		 
+		 return tam;
+	}
+	
+	public void exibir() {
+		
+		Bloco aux = inicio;
+		
+		if (this.tamanhoFila() == 0) {
+			
+			System.out.println("Lista Vazia.");
+			
+		}else {
+			
+			while(aux != null) {
+				
+				System.out.print(aux + ", ");
+				aux = aux.prox;
+				
+			}
+		}
+	}
+	
+	
+
+}
