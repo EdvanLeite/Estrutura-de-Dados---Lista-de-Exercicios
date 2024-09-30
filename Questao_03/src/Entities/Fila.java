@@ -2,10 +2,12 @@ package Entities;
 
 public class Fila {
 	
-	public Bloco inicio;
+	public Bloco inicio = new Bloco();
 	
 	public int tamanho = 0;
-
+	
+	
+	
 
 	public void push (int valor) {
 		

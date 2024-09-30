@@ -8,32 +8,27 @@ import Entities.PilhaFila;
 
 public class Program {
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
-		Scanner sc = new Scanner(System.in);
-		Random random = new Random();
+        Scanner sc = new Scanner(System.in);
+        Random random = new Random();
 
-		PilhaFila pilhaX = new PilhaFila();
+        PilhaFila pilhaX = new PilhaFila();
+        
+        pilhaX.pilha = new Fila();
 
-	
-		pilhaX.fila = new Fila();
-		pilhaX.pilha = new Fila();
+        for (int i = 0; i <= 5; i++) {
+            pilhaX.push(random.nextInt(70));
+        }
 
-		
-		for (int i=0 ; i<=10;i++) {
-			pilhaX.fila.push(random.nextInt(70));
-			
-		
-		}
+        pilhaX.pilha.exibir();
 
-		pilhaX.fila.exibir();
-		
-		System.out.println();
-		Fila pilha = pilhaX.pilha1();
-		
-		pilha.exibir();
-		
+        pilhaX.push(10);
+        System.out.println();
+        pilhaX.pilha.exibir();
+        
+        pilhaX.fila.exibir();
 
-	}
-
+        sc.close();
+    }
 }

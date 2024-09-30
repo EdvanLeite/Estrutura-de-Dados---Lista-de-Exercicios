@@ -1,61 +1,58 @@
 package Entities;
 
 public class PilhaFila  {
-	
-	public Fila fila;
-	public Fila pilha;
-	
-	public Fila pilha() {
-		
-		Bloco aux = fila.inicio;
-		pilha.inicio = fila.localizarUltimo();
-		Bloco aux2 = pilha.inicio;
-		
-		boolean test = true;
-		
-		while(test) {
-			while(aux.prox != aux2) {
-				aux = aux.prox;
-			}
-			aux2.prox = aux; 
-			aux = fila.inicio;
-			aux2 = aux2.prox;
-			
-			if(fila.inicio.valor == pilha.localizarUltimo().valor) {
-				test = false;
-			}
-			
-		}
-		
-		return pilha;
-	}
-	
-	
-	
-	 public Fila pilha1() {
-	        
-	       
-	        Bloco aux = fila.inicio; 
-	        pilha.inicio = fila.localizarUltimo(); 
+    
+    public Fila fila;
+    public Fila pilha;
+    
+    public PilhaFila() {
+        this.fila = new Fila();
+        this.pilha = new Fila();
+    }
+    
+    public void push(int valor) {
+        fila.push(valor);
+        Fila aux = this.inverterFila(fila);
+        pilha = aux;
+    }
+    
+    public void pop() {
+        if (pilha.inicio != null) {
+            pilha.pop();
+            fila.pop();
+        } else {
+            System.out.println("Pilha está vazia!");
+        }
+    }
+    
+    public void exibir() {
+        Bloco aux = pilha.inicio;
+        while (aux != null) {
+            System.out.print(aux.valor + ", ");
+            aux = aux.prox;
+        }
+        System.out.println();
+    }
+    
+    public Fila inverterFila(Fila fila) {
+        if (fila.inicio == null) {
+            return null;
+        }
 
-	        Bloco aux2 = pilha.inicio;
-	        boolean test = true;
+        Bloco anterior = null;
+        Bloco atual = fila.inicio;
+        Bloco proximo;
 
-	        while (test) {
-	            while (aux.prox != aux2) {
-	                aux = aux.prox; 
-	            }
-	            aux2.prox = aux; 
-	            aux = fila.inicio; // Reinicia aux para o início da fila
-	            aux2 = aux2.prox; // Move aux2 para o próximo
+        while (atual != null) {
+            proximo = atual.prox;
+            atual.prox = anterior;
+            anterior = atual;
+            atual = proximo;
+        }
 
-	            if (fila.inicio.valor == pilha.localizarUltimo().valor) {
-	                test = false; // Para o loop se os valores forem iguais
-	            }
-	        }
-	        
-	        return pilha; // Retorna a pilha
-	    }
-	
+        Fila filaInvertida = new Fila();
+        filaInvertida.inicio = anterior;
 
+        return filaInvertida;
+    }
 }
