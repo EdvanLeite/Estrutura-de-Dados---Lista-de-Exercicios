@@ -13,21 +13,23 @@ public class Program {
         Scanner sc = new Scanner(System.in);
         Random random = new Random();
 
-        PilhaFila pilhaX = new PilhaFila();
-        
-        pilhaX.pilha = new Fila();
+        PilhaFila pilha = new PilhaFila();
+        pilha.push(1);
+        pilha.push(2);
+        pilha.push(3);
 
-        for (int i = 0; i <= 5; i++) {
-            pilhaX.push(random.nextInt(70));
-        }
+        pilha.exibir();  
 
-        pilhaX.pilha.exibir();
+        pilha.pop();  
+        pilha.exibir();  
 
-        pilhaX.push(10);
-        System.out.println();
-        pilhaX.pilha.exibir();
-        
-        pilhaX.fila.exibir();
+        pilha.pop();  
+        pilha.exibir();  
+
+        pilha.pop();  
+        pilha.exibir();  
+
+       
 
         sc.close();
     }

@@ -23,7 +23,7 @@ public class Program {
 		list.exibirLista();
 		System.out.println();
 		
-		list.addElemento(655, 10);
+		list.addElemento(655, 4);
 		
 		list.exibirLista();
 		

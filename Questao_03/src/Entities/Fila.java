@@ -2,12 +2,10 @@ package Entities;
 
 public class Fila {
 	
-	public Bloco inicio = new Bloco();
+	public Bloco inicio;
 	
 	public int tamanho = 0;
-	
-	
-	
+
 
 	public void push (int valor) {
 		
@@ -43,7 +41,7 @@ public class Fila {
 	
 	
 	
-	protected Bloco localizarUltimo() {
+	private Bloco localizarUltimo() {
 		
 		Bloco aux = inicio;
 		
@@ -57,26 +55,19 @@ public class Fila {
 	}
 	
 	
-
 	public void exibir() {
-		
-		Bloco aux = inicio;
-		
-		if (this.tamanho == 0) {
-			
-			System.out.println("Lista Vazia.");
-			
-		}else {
-			
-			while(aux != null) {
-				
-				System.out.print(aux + ", ");
-				aux = aux.prox;
-				
-			}
-		}
+	    Bloco aux = inicio;
+
+	    if (this.tamanho == 0) {
+	        System.out.println("Lista Vazia.");
+	    } else {
+	        while (aux != null) {
+	            System.out.print(aux.valor + ", "); 
+	            aux = aux.prox;
+	        }
+	        System.out.println(); 
+	    }
 	}
-	
 	
 
 }

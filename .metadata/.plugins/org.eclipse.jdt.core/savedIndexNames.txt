@@ -1,11 +1,17 @@
 INDEX VERSION 1.134+C:\Users\leite\OneDrive\Área de Trabalho\Lista de Exercicios Lab Estrtura de Dados\.metadata\.plugins\org.eclipse.jdt.core
+1865797976.index
+2431831314.index
+1743232383.index
 3768072605.index
 2543782155.index
-167484584.index
-1865797976.index
-2001395733.index
-2130488382.index
-3891658116.index
-244734129.index
-2431831314.index
 5099651.index
+2001395733.index
+244734129.index
+283160041.index
+167484584.index
+3891658116.index
+4186114268.index
+2130488382.index
+1850855764.index
+2313813075.index
+4277062853.index

@@ -1,58 +1,49 @@
 package Entities;
 
-public class PilhaFila  {
-    
-    public Fila fila;
-    public Fila pilha;
-    
-    public PilhaFila() {
-        this.fila = new Fila();
-        this.pilha = new Fila();
-    }
-    
-    public void push(int valor) {
-        fila.push(valor);
-        Fila aux = this.inverterFila(fila);
-        pilha = aux;
-    }
-    
-    public void pop() {
-        if (pilha.inicio != null) {
-            pilha.pop();
-            fila.pop();
-        } else {
-            System.out.println("Pilha está vazia!");
-        }
-    }
-    
-    public void exibir() {
-        Bloco aux = pilha.inicio;
-        while (aux != null) {
-            System.out.print(aux.valor + ", ");
-            aux = aux.prox;
-        }
-        System.out.println();
-    }
-    
-    public Fila inverterFila(Fila fila) {
-        if (fila.inicio == null) {
-            return null;
-        }
+public class PilhaFila {
 
-        Bloco anterior = null;
-        Bloco atual = fila.inicio;
-        Bloco proximo;
+	private Fila fila1;
+	private Fila fila2;
 
-        while (atual != null) {
-            proximo = atual.prox;
-            atual.prox = anterior;
-            anterior = atual;
-            atual = proximo;
-        }
+	public PilhaFila() {
+		this.fila1 = new Fila();
+		this.fila2 = new Fila();
+	}
 
-        Fila filaInvertida = new Fila();
-        filaInvertida.inicio = anterior;
+	public void push(int valor) {
+		fila1.push(valor);
+	}
+	
 
-        return filaInvertida;
-    }
+	public void pop() {
+		if (fila1.tamanho == 0) {
+			System.out.println("A pilha está vazia.");
+			return;
+		}
+
+		
+		while (fila1.tamanho > 1) {
+			fila2.push(fila1.inicio.valor); 
+			fila1.pop();
+		}
+
+		
+		fila1.pop();
+
+		
+		while (fila2.tamanho > 0) {
+			fila1.push(fila2.inicio.valor);
+			fila2.pop();
+		}
+	}
+
+	
+	
+	public void exibir() {
+		fila1.exibir();
+	}
+
+	public boolean estaVazia() {
+		return fila1.tamanho == 0;
+	}
 }

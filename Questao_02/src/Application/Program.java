@@ -55,7 +55,7 @@ public class Program {
 		
 		pilha.exibir();
 		
-		
+		System.out.println();
 		System.out.println("Topo -> "+ pilha.topo());
 
 	}

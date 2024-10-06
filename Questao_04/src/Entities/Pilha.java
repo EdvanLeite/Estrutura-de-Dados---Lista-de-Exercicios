@@ -2,7 +2,7 @@ package Entities;
 
 public class Pilha {
 	
-	private Bloco inicio;
+	public Bloco inicio;
 	public int tamanho = 0;
 
 	

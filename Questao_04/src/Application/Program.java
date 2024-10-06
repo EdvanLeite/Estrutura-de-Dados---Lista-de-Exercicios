@@ -3,7 +3,7 @@ package Application;
 import java.util.Random;
 import java.util.Scanner;
 
-import Entities.Pilha;
+import Entities.FilaPilha;
 
 public class Program {
 
@@ -12,52 +12,25 @@ public class Program {
 		Scanner sc = new Scanner(System.in);
 		Random random = new Random();
 
-		Pilha pilha = new Pilha();
+		 FilaPilha fila = new FilaPilha();
+	        fila.inserir(1);
+	        fila.inserir(2);
+	        fila.inserir(3);
 
-	
-		
-		
-		for (int i=0 ; i<=10;i++) {
-			pilha.push(random.nextInt(70));
-		}
+	        fila.exibir();  
+	        System.out.println();
 
-		pilha.exibir();
-		
-		
-		System.out.println();
-		System.out.println("Insira dois novos numeros:");
-		
-		int aux = sc.nextInt();
-		pilha.push(aux);
-		aux = sc.nextInt();
-		pilha.push(aux);
-		
-		
-		pilha.exibir();
-		
-		
-		System.out.println();
-		int op =0;
-		
-		while (op != 1) {
+	        fila.remover(); 
+	        fila.exibir();  
+	        System.out.println();
 
-			System.out.print("Remove number(0 - Yes || 1 - No)?");
-			int opp = sc.nextInt();
-			
-			if (opp == 0) {
-				
-				pilha.pop();
-			}
+	        fila.remover(); 
+	        fila.exibir();  
+	        System.out.println();
 
-			System.out.print("Enter(0) or leave(1): ");
-			op = sc.nextInt();
-		}
-		
-		pilha.exibir();
-		
-		
-		System.out.println("Topo -> "+ pilha.topo());
-
-	}
+	        fila.remover();  
+	        fila.exibir();  
+	        System.out.println();
+	    }
 
 }
