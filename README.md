@@ -1,3 +1,4 @@
+Observação: Os numeros Int ou Double utilizados foram gerado pelo objeto random da classe java.util.Random.
 Lista de Exercicios 
 
 Universidade do Estado do Rio Grande do Norte
