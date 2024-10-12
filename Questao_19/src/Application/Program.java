@@ -51,7 +51,7 @@ public class Program {
 			
 		}
 		
-		System.out.println("Soma do jogador Vencedor: " + somas.localizarMaiorValor());
+		System.out.println("Soma do jogador Vencedor: "+ somas.localizarMaiorValor());
 		
 		
 	
