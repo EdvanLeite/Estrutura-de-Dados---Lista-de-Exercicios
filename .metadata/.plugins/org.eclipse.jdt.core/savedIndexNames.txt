@@ -6,6 +6,7 @@ INDEX VERSION 1.134+C:\Users\leite\OneDrive\Área de Trabalho\Lista de Exercicio
 2543782155.index
 5099651.index
 2001395733.index
+395143664.index
 244734129.index
 283160041.index
 167484584.index

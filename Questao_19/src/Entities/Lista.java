@@ -131,33 +131,31 @@ public class Lista {
 	}
 
 	public Bloco localizarBloco(int pos) {
-		return localizarBlocoRecursivo(this.inicio, pos);
-	}
 
-	private Bloco localizarBlocoRecursivo(Bloco aux, int pos) {
+		Bloco aux = this.inicio;
+		int cont = 0;
 
-		if (aux == null) {
-			return null;
+		while (aux != null && cont < pos - 1) {
+
+			cont++;
+			aux = aux.prox;
 		}
 
-		if (pos == 1) {
-			return aux;
-		}
-
-		return localizarBlocoRecursivo(aux.prox, pos - 1);
+		return aux;
 	}
 
 	public int tamanho() {
-		return tamanhoRecursivo(this.inicio);
-	}
 
-	private int tamanhoRecursivo(Bloco aux) {
+		Bloco aux = this.inicio;
+		int cont = 0;
 
-		if (aux == null) {
-			return 0;
+		while (aux != null) {
+
+			cont++;
+			aux = aux.prox;
 		}
 
-		return 1 + tamanhoRecursivo(aux.prox);
+		return cont;
 	}
 
 	// Questao 07 (Classe criada em sala de aula)
@@ -194,4 +192,95 @@ public class Lista {
 		}
 	}
 
+	public Lista concatenarListas(Lista list1, Lista list2) {
+
+		Bloco aux = this.localizarBloco(this.tamanho());
+
+		aux.prox = list2.inicio;
+		return list1;
+
+	}
+
+	public void removeDuplicados() {
+		Bloco aux = this.inicio;
+
+		while (aux != null) {
+			Bloco anterior = aux;
+			Bloco atual = aux.prox;
+
+			while (atual != null) {
+				if (atual.valor == aux.valor) {
+
+					anterior.prox = atual.prox;
+
+				} else {
+
+					anterior = atual;
+				}
+				atual = atual.prox;
+			}
+
+			aux = aux.prox;
+		}
+	}
+
+	public Lista Clone() {
+		Lista list = new Lista();
+		Bloco aux = this.inicio;
+
+		while (aux != null) {
+			list.addElemento(aux.valor);
+			aux = aux.prox;
+		}
+
+		return list;
+
+	}
+
+	public void removerComPos(int pos) {
+		if (pos == 0) {
+			this.removerElementoInicio();
+		} else if (pos == this.tamanho()) {
+			this.removerElementoFim();
+		} else {
+
+			Bloco aux = this.localizarBloco(pos - 1);
+
+			aux.prox = aux.prox.prox;
+		}
+	}
+
+	
+	
+	public Lista localizarMaior(int valor) {
+		Lista list = new Lista();
+		Bloco aux = this.inicio;
+		
+		while(aux !=null ) {
+			if(aux.valor >= valor) {
+				list.addElemento(aux.valor);
+			}
+			
+			aux = aux.prox;
+		}
+		
+		return list;
+	}
+	
+	public int localizarMaiorValor() {
+		Bloco aux = this.inicio;
+		int maior = aux.valor;
+		
+		while(aux !=null ) {
+			if(aux.valor > maior) {
+				maior = aux.valor;
+			}
+			aux = aux.prox;
+		}
+		
+		return maior;
+	}
+	
+	
+	
 }
